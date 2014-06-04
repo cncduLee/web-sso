@@ -5,7 +5,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
       http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd">
 
-    <bean id="dbRealm" class="com.jd.payment.member.shiro.ShiroDBRealm">
+    <bean id="dbRealm" class="com.bitium10.sso.shiro.ShiroDBRealm">
         <property name="credentialsMatcher">
             <!-- The 'bootstrapDataPopulator' Sha256 hashes the password
                  (using the username as the salt) then base64 encodes it: -->
@@ -42,7 +42,7 @@
         <property name="filterChainDefinitionMap" ref="permissionMap"/>
     </bean>
 
-    <bean id="permissionMap" class="com.jd.payment.member.shiro.PermissionMap">
+    <bean id="permissionMap" class="com.bitium10.sso.shiro.PermissionMap">
         <constructor-arg name="shiroManageFacade" ref="shiroManageFacade"/>
     </bean>
 
