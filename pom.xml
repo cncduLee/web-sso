@@ -11,9 +11,8 @@
 
     <modules>
         <module>sso-client</module>
-        <module>sso-sample</module>
         <module>sso-server</module>
-        <module>test-web</module>
+        <module>sso-sample</module>
     </modules>
 
     <build>

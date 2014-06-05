@@ -4,6 +4,7 @@ import com.bitium10.sso.common.ParamWrapper;
 import com.bitium10.sso.common.Result;
 import com.bitium10.sso.domain.UserLoginResult;
 import com.bitium10.sso.facade.api.ShiroManageFacade;
+import org.springframework.stereotype.Service;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,6 +13,8 @@ import com.bitium10.sso.facade.api.ShiroManageFacade;
  * Time: 下午6:07
  * To change this template use File | Settings | File Templates.
  */
+
+@Service("shiroManageFacade")
 public class ShiroManageFacadeImpl implements ShiroManageFacade {
 
 
