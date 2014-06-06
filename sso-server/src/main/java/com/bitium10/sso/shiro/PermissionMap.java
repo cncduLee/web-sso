@@ -3,6 +3,7 @@ package com.bitium10.sso.shiro;
 import com.bitium10.sso.facade.api.ShiroManageFacade;
 
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -14,7 +15,15 @@ import java.util.HashMap;
 public class PermissionMap extends HashMap{
 
     public PermissionMap(ShiroManageFacade shiroManageFacade) {
+        Map<String, String> filers = new HashMap<String, String>();
 
+        filers.put("/static/**", "anon");
+        filers.put("/nopermission**", "anon");
+        filers.put("/version**", "anon");
+        filers.put("/login**", "anon");
+        filers.put("/**", "authc");
+
+        super.putAll(filers);
     }
 
 }

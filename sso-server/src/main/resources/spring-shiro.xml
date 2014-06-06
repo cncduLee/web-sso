@@ -33,7 +33,7 @@
         <!-- 登录成功后要跳转的连接 -->
         <property name="successUrl" value="/index.htm"/>
         <!-- 用户访问未对其授权的资源时,所显示的连接 -->
-        <property name="unauthorizedUrl" value="/htmls/nopermission.html"/>
+        <property name="unauthorizedUrl" value="/nopermission.html"/>
         <!-- Shiro连接约束配置,即过滤链的定义 -->
         <!-- 此处可配合我的这篇文章来理解各个过滤连的作用http://blog.csdn.net/jadyer/article/details/12172839 -->
         <!-- 下面value值的第一个'/'代表的路径是相对于HttpServletRequest.getContextPath()的值来的 -->
