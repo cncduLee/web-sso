@@ -35,7 +35,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
     private ShiroManageFacade shiroManageFacade;
 
     /**
-     * 为当前登录的Subject授予角色和权限,访问需要授权的资源时调用
+     * 【授权查询回调函数】为当前登录的Subject授予角色和权限,访问需要授权的资源时调用
      *
      * @param principalCollection
      * @return
@@ -58,7 +58,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
     }
 
     /**
-     * 验证当前登录的Subject, 登陆时调用
+     * 【认证回调函数】验证当前登录的Subject, 登陆时调用
      *
      *
      * @param authenticationToken

@@ -29,14 +29,12 @@
     </bean>
 
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL -->
-    <!--
     <mvc:default-servlet-handler/>
-
     <mvc:resources mapping="/static/**" location="/static/" />
-             -->
-    <!-- 定义无需Controller的url<->view直接映射
+
+    <!-- 定义无需Controller的url<->view直接映射  -->
     <mvc:view-controller path="/" view-name="index"/>
-                                          -->
+
 
     <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
         <!-- 定义默认的异常处理页面，当该异常类型的注册时使用 -->

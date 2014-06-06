@@ -20,7 +20,10 @@ public class PermissionMap extends HashMap{
         filers.put("/static/**", "anon");
         filers.put("/nopermission**", "anon");
         filers.put("/version**", "anon");
-        filers.put("/login**", "anon");
+        filers.put("/servlet/validateCodeServlet**", "anon");
+
+        filers.put("/login**", "authc");
+        filers.put("/logout**", "logout");
         filers.put("/**", "authc");
 
         super.putAll(filers);
