@@ -13,6 +13,7 @@ public class Resource extends BaseEntity{
     private Long id;		// 编号
     private Long parent;    // 父级菜单
     private String parentIds;// 所有父级编号
+    private String type;    //类型
     private String name; 	// 名称
     private String href; 	// 链接
     private String target; 	// 目标（ mainFrame、_blank、_self、_parent、_top）
@@ -79,6 +80,14 @@ public class Resource extends BaseEntity{
 
     public void setIcon(String icon) {
         this.icon = icon;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public Integer getSort() {

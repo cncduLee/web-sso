@@ -1,8 +1,6 @@
 package com.bitium10.sso.controller;
 
-import com.bitium10.sso.common.ParamWrapper;
-import com.bitium10.sso.common.ParamWrapperFactory;
-import com.bitium10.sso.facade.api.ShiroManageFacade;
+
 import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -16,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -34,17 +31,15 @@ public class LoginController {
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
     private static final String CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
-    @Resource
-    private ShiroManageFacade shiroManageFacade;
-
     @RequestMapping(value="/login.htm",method = RequestMethod.GET)
     public String login(HttpServletRequest request){
-        logger.debug("go to login page...");
         return "login";
     }
 
     @RequestMapping(value="/login.htm",method = RequestMethod.POST)
-    public String login(String loginName, String password, Model model, HttpServletRequest request, HttpServletResponse response){
+    public String login(String loginName, String password,
+                        Model model, HttpServletRequest request,
+                        HttpServletResponse response){
         if (StringUtils.isBlank(loginName)) {
             model.addAttribute("error", "请输入用户名");
             model.addAttribute("loginName", loginName);
@@ -67,12 +62,7 @@ public class LoginController {
             return "redirect:/index.htm";
         } catch (CredentialsException e) {
             logger.error("用户登录密码错误, msg:{}", e.getMessage(), e);
-            try {
-                ParamWrapper<String> param = ParamWrapperFactory.getQueryParamWrapper(request, response, loginName);
-                shiroManageFacade.increasePasswordWrongCount(param);
-            } catch (Exception ex) {
-                logger.error("增加密码错误次数发生异常，msg:{}", ex.getMessage());
-            }
+            //TODO 增加密码错误次数发生异常
         }catch (AuthenticationException e) {
             logger.error("用户登录发生异常, msg:{}", e.getMessage(), e);
         }

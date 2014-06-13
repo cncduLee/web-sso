@@ -12,7 +12,7 @@
 
     <properties>
         <!-- Common libs -->
-        <spring.version>3.2.2.RELEASE</spring.version>
+        <spring.version>3.1.1.RELEASE</spring.version>
         <spring_version>3.1.1.RELEASE</spring_version>
         <sitemesh.version>2.4.2</sitemesh.version>
         <commons-lang_version>2.6</commons-lang_version>
@@ -20,7 +20,7 @@
         <mybatis-spring_version>1.1.1</mybatis-spring_version>
         <mysql-connector_version>5.1.8</mysql-connector_version>
         <jackson.version>2.1.4</jackson.version>
-
+        <commons-lang3.version>3.1</commons-lang3.version>
     </properties>
 
     <!-- 设定除中央仓库(repo1.maven.org/maven2/)外的其他仓库,按设定顺序进行查找. -->
@@ -119,6 +119,24 @@
             <version>1.2.17</version>
         </dependency>
 
+        <!-- aspectj相关jar包-->
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjrt</artifactId>
+            <version>1.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>1.7.4</version>
+        </dependency>
+        <dependency>
+            <groupId>cglib</groupId>
+            <artifactId>cglib</artifactId>
+            <version>2.2.2</version>
+            <scope>runtime</scope>
+        </dependency>
+
         <!--spring-->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -189,9 +207,19 @@
             <version>${commons-lang_version}</version>
         </dependency>
         <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
+        </dependency>
+        <dependency>
             <groupId>commons-beanutils</groupId>
             <artifactId>commons-beanutils</artifactId>
             <version>1.7.0</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-codec</groupId>
+            <artifactId>commons-codec</artifactId>
+            <version>1.6</version>
         </dependency>
         <dependency>
             <groupId>commons-collections</groupId>

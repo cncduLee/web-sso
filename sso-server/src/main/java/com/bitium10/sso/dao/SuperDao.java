@@ -2,6 +2,7 @@ package com.bitium10.sso.dao;
 
 import com.bitium10.sso.common.BasePageParam;
 import com.bitium10.sso.common.Page;
+import com.bitium10.sso.dao.api.ISuperDao;
 import org.mybatis.spring.support.SqlSessionDaoSupport;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -18,7 +19,7 @@ import java.util.Map;
  * To change this template use File | Settings | File Templates.
  */
 @Repository("superDao")
-public class SuperDao extends SqlSessionDaoSupport implements ISuperDao{
+public class SuperDao extends SqlSessionDaoSupport implements ISuperDao {
     private static Logger logger = LoggerFactory.getLogger(SuperDao.class);
 
     @Override

@@ -1,5 +1,6 @@
 package com.bitium10.sso.utils;
 
+import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -12,8 +13,6 @@ import org.slf4j.LoggerFactory;
  */
 public class StringTransition {
     private static final Logger logger = LoggerFactory.getLogger(StringTransition.class);
-
-
 
     public static Integer stringToInt(String str) {
         try {
@@ -34,4 +33,10 @@ public class StringTransition {
             return null;
         }
     }
+
+    public static String toJson(Object obj){
+        return new Gson().toJson(obj);
+    }
+
+
 }

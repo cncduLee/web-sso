@@ -17,12 +17,12 @@
     <div id="header" style="width:500px;">
         <h1>百墨-SSO</h1><br/>
         <div class="well"><br/>
-            <form id="loginForm" action="${ctx}/login" method="post" class="form-horizontal">
+            <form id="loginForm" action="${ctx}/login.htm" method="post" class="form-horizontal">
 
                 <div class="control-group">
                     <label class="control-label">登录名:</label>
                     <div class="controls">
-                        <input type="text" id="username" name="username" maxlength="50" value="${username}" class="required input-medium"/>
+                        <input type="text" id="loginName" name="loginName" maxlength="50" value="${loginName}" class="required input-medium"/>
                     </div>
                 </div>
                 <div class="control-group">

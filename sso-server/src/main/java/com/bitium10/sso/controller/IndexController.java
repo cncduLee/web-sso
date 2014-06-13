@@ -1,16 +1,24 @@
 package com.bitium10.sso.controller;
 
+import com.bitium10.sso.bind.CurrentUser;
+import com.bitium10.sso.domain.Resource;
+import com.bitium10.sso.domain.User;
 import com.bitium10.sso.domain.UserLoginResult;
+import com.bitium10.sso.service.UserService;
 import com.google.gson.Gson;
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresUser;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -24,19 +32,12 @@ public class IndexController {
 
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
+    @RequiresUser
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public String index(Model model) {
-        Subject currentUser = SecurityUtils.getSubject();
-        if (null != currentUser) {
-            Session session = currentUser.getSession();
-            if (null != session) {
-                UserLoginResult user = (UserLoginResult) session.getAttribute("currentUser");
-                String jr = new Gson().toJson(user.getResources());
-                model.addAttribute("menus", jr);
-                return "index";
-            }
-        }
-        return SystemErrorController.SYSTEM_ERROR;
+        List<Resource> menus = UserService.getResourceList();
+        model.addAttribute("menus", menus);
+        return "index";
     }
 
 }

@@ -13,8 +13,40 @@ public class Role extends BaseEntity{
     private Long id;	   // 编号
     private Long module; //所属模块Id
     private String name;   // 角色名称
-    private String status; //是否可用
     private String delFlag;// 删除标记（0：正常；1：删除）
 
+    public Role() {
+    }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Long getModule() {
+        return module;
+    }
+
+    public void setModule(Long module) {
+        this.module = module;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDelFlag() {
+        return delFlag;
+    }
+
+    public void setDelFlag(String delFlag) {
+        this.delFlag = delFlag;
+    }
 }
