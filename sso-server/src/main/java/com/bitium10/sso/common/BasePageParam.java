@@ -21,8 +21,10 @@ public class BasePageParam implements Serializable{
     public static final int DEFAULT_PAGE_NUM = 1;
 
     private Integer pageSize = DEFAULT_PAGE_SIZE;
-
     private Integer pageNo = DEFAULT_PAGE_NUM;
+
+    private Integer endIdx;
+    private Integer startIdx;
 
     public BasePageParam() {
     }
@@ -47,5 +49,21 @@ public class BasePageParam implements Serializable{
 
     public void setPageNo(Integer pageNo) {
         this.pageNo = pageNo;
+    }
+
+    public Integer getEndIdx() {
+        return endIdx;
+    }
+
+    public void setEndIdx(Integer endIdx) {
+        this.endIdx = endIdx;
+    }
+
+    public Integer getStartIdx() {
+        return startIdx;
+    }
+
+    public void setStartIdx(Integer startIdx) {
+        this.startIdx = startIdx;
     }
 }

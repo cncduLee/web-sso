@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Role">
+    <resultMap id="ResultMapper" type="Role">
+        <result column="id" property="id" jdbcType="DECIMAL"/>
+    </resultMap>
+
+
+
+    <sql id="common">
+        SELECT
+        <include refid="Base_Column_List"></include>
+        FROM
+        Role
+        WHERE
+
+        ORDER BY order_time DESC
+        limit
+        #{startIdx,jdbcType=INTEGER}
+        ,#{pageSize,jdbcType=INTEGER}
+    </sql>
+
+
+    <sql id="Base_Column_List">
+
+    </sql>
+    <sql id="Base_Where_List">
+
+    </sql>
+
+</mapper>

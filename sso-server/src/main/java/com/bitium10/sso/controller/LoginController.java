@@ -40,7 +40,6 @@ public class LoginController {
     @RequestMapping(value="/login.htm",method = RequestMethod.GET)
     public String login(HttpServletRequest request){
         logger.debug("go to login page...");
-        System.out.println("go to login page...");
         return "login";
     }
 

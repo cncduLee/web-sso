@@ -32,7 +32,7 @@ public class UserLoginResult implements Serializable{
     // 用户的权限代码
     private List<String> permissions;
     // 资源列表
-    private List<UserResource> resources;
+    private List<Resource> resources;
 
     public Long getId() {
         return id;
@@ -114,11 +114,11 @@ public class UserLoginResult implements Serializable{
         this.permissions = permissions;
     }
 
-    public List<UserResource> getResources() {
+    public List<Resource> getResources() {
         return resources;
     }
 
-    public void setResources(List<UserResource> resources) {
+    public void setResources(List<Resource> resources) {
         this.resources = resources;
     }
 }

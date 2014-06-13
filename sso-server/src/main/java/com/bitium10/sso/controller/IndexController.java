@@ -26,8 +26,6 @@ public class IndexController {
 
     @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
     public String index(Model model) {
-        logger.debug("go to index page....");
-        System.out.println("go to index page...");
         Subject currentUser = SecurityUtils.getSubject();
         if (null != currentUser) {
             Session session = currentUser.getSession();

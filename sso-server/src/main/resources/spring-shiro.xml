@@ -49,9 +49,4 @@
             </value>
         </property>
     </bean>
-
-    <bean id="permissionMap" class="com.bitium10.sso.shiro.PermissionMap">
-        <constructor-arg name="shiroManageFacade" ref="shiroManageFacade"/>
-    </bean>
-
 </beans>
