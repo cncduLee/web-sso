@@ -1,11 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ehcache updateCheck="false" name="shiroCache">
 
-    <diskStore path="java.io.tmpdir/websso/ehcache/shiro" />
+    <diskStore path="java.io.tmpdir" />
+
+    <!-- 登录记录缓存 锁定10分钟 -->
+    <cache name="passwordRetryCache"
+           maxEntriesLocalHeap="2000"
+           eternal="false"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="0"
+           overflowToDisk="false"
+           statistics="true">
+    </cache>
 
     <!-- DefaultCache setting. -->
-    <defaultCache maxEntriesLocalHeap="10000" eternal="false" timeToIdleSeconds="300" timeToLiveSeconds="600"
-                  overflowToDisk="true" maxEntriesLocalDisk="100000" />
+    <defaultCache maxEntriesLocalHeap="10000"
+                  eternal="false"
+                  timeToIdleSeconds="300"
+                  timeToLiveSeconds="600"
+                  overflowToDisk="true"
+                  maxEntriesLocalDisk="100000" />
 
     <cache name="shiro-activeSessionCache"
            maxElementsInMemory="10000"

@@ -7,6 +7,8 @@
 
         <result column="login_name" property="loginName" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>
+        <result column="salt" property="salt" jdbcType="VARCHAR"/>
+
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
 
@@ -50,6 +52,7 @@
         department,
         login_name,
         password,
+        salt,
         name,
         email,
         phone,

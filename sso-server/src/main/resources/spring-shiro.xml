@@ -14,6 +14,7 @@
     <!-- 项目自定义的 Realm （depend-on用来表示一个Bean的实例化依靠另一个Bean先实例化）。-->
     <bean id="dbRealm" class="com.bitium10.sso.shiro.ShiroDBRealm" depends-on="userDao,roleDao,resourceDao">
         <property name="systemService" ref="systemService"/>
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
     </bean>
 
     <!-- Shiro 过滤器 -->
@@ -31,12 +32,18 @@
         </property>
     </bean>
 
+    <!-- 凭证匹配器 -->
+    <bean id="credentialsMatcher" class="com.bitium10.sso.shiro.RetryLimitHashedCredentialsMatcher">
+        <constructor-arg ref="shiroCacheManager"/>
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="2"/>
+        <property name="storedCredentialsHexEncoded" value="true"/>
+    </bean>
+
     <!-- 用户授权信息Cache, 采用EhCache -->
     <bean id="shiroCacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
         <property name="cacheManagerConfigFile" value="classpath:cache/ehcache-shiro.xml"/>
     </bean>
-
-
 
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>

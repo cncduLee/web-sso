@@ -12,6 +12,7 @@ import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.cache.Cache;
+import org.apache.shiro.realm.AuthenticatingRealm;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.PrincipalCollection;
@@ -83,46 +84,17 @@ public class ShiroDBRealm extends AuthorizingRealm {
         if (null == user) {
             return null;
         }
-        byte[] salt = Encodes.decodeHex(user.getPassword().substring(0, 16));
-        AuthenticationInfo authcInfo = new SimpleAuthenticationInfo(
+        SimpleAuthenticationInfo authcInfo = new SimpleAuthenticationInfo(
                 new Principal(user),
                 user.getPassword(),
-                ByteSource.Util.bytes(salt),
+                ByteSource.Util.bytes(user.getCredentialsSalt()),
                 getName());
-        this.setSession("currentUser", user);
         return authcInfo;
-    }
-
-    /**
-     * 设置session
-     * @param key
-     * @param value
-     */
-    private void setSession(Object key, Object value){
-        Subject currentUser = SecurityUtils.getSubject();
-        if(null != currentUser){
-            Session session = currentUser.getSession();
-            logger.debug("Session默认超时时间为[{}]毫秒。",session.getTimeout());
-            if(null != session){
-                session.setAttribute(key, value);
-            }
-        }
     }
 
     public void setSystemService(SystemService systemService) {
         this.systemService = systemService;
     }
-
-    /**
-     * 设定密码校验的Hash算法与迭代次数
-     */
-    @PostConstruct
-    public void initCredentialsMatcher() {
-        HashedCredentialsMatcher matcher = new HashedCredentialsMatcher(SystemService.HASH_ALGORITHM);
-        matcher.setHashIterations(SystemService.HASH_INTERATIONS);
-        setCredentialsMatcher(matcher);
-    }
-
 
     /**
      * 清空用户关联权限认证，待下次使用时重新加载
