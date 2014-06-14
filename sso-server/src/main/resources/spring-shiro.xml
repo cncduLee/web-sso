@@ -12,14 +12,8 @@
     </bean>
 
     <!-- 项目自定义的 Realm （depend-on用来表示一个Bean的实例化依靠另一个Bean先实例化）。-->
-    <bean id="dbRealm" class="com.bitium10.sso.shiro.ShiroDBRealm" depends-on="resourceDao,roleDao,userDao">
-        <property name="credentialsMatcher">
-            <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
-                <property name="hashAlgorithmName" value="SHA-256"/>
-                <!-- true means hex encoded, false means base64 encoded -->
-                <property name="storedCredentialsHexEncoded" value="false"/>
-            </bean>
-        </property>
+    <bean id="dbRealm" class="com.bitium10.sso.shiro.ShiroDBRealm" depends-on="userDao,roleDao,resourceDao">
+        <property name="systemService" ref="systemService"/>
     </bean>
 
     <!-- Shiro 过滤器 -->
@@ -42,10 +36,13 @@
         <property name="cacheManagerConfigFile" value="classpath:cache/ehcache-shiro.xml"/>
     </bean>
 
+
+
     <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 
     <!-- AOP式方法级权限检查 -->
+    <!-- 支持Shiro对Controller的方法级AOP安全控制 begin-->
     <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator" depends-on="lifecycleBeanPostProcessor">
         <property name="proxyTargetClass" value="true" />
     </bean>

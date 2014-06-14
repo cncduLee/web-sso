@@ -6,8 +6,10 @@
 
     <typeAliases>
        <typeAlias alias="Role" type="com.bitium10.sso.domain.Role"/>
+       <typeAlias alias="User" type="com.bitium10.sso.domain.User"/>
     </typeAliases>
     <mappers>
         <mapper resource="mybatis/mapper/RoleMapper.xml"/>
+        <mapper resource="mybatis/mapper/UserMapper.xml"/>
     </mappers>
 </configuration>

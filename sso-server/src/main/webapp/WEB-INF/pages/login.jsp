@@ -1,3 +1,4 @@
+<%@ page import="org.apache.shiro.web.filter.authc.FormAuthenticationFilter" %>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
@@ -18,11 +19,14 @@
         <h1>百墨-SSO</h1><br/>
         <div class="well"><br/>
             <form id="loginForm" action="${ctx}/login.htm" method="post" class="form-horizontal">
+                <c:if test="${error != null}">
+                    <div id="message" class="alert  alert-error"><button data-dismiss="alert" class="close">×</button>登录失败,${error } 请重试.</div>
+                </c:if>
 
                 <div class="control-group">
                     <label class="control-label">登录名:</label>
                     <div class="controls">
-                        <input type="text" id="loginName" name="loginName" maxlength="50" value="${loginName}" class="required input-medium"/>
+                        <input type="text" id="username" name="username" maxlength="50" value="${loginName}" class="required input-medium"/>
                     </div>
                 </div>
                 <div class="control-group">

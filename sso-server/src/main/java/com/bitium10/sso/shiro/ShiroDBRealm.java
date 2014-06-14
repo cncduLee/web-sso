@@ -109,6 +109,9 @@ public class ShiroDBRealm extends AuthorizingRealm {
         }
     }
 
+    public void setSystemService(SystemService systemService) {
+        this.systemService = systemService;
+    }
 
     /**
      * 设定密码校验的Hash算法与迭代次数
@@ -119,6 +122,7 @@ public class ShiroDBRealm extends AuthorizingRealm {
         matcher.setHashIterations(SystemService.HASH_INTERATIONS);
         setCredentialsMatcher(matcher);
     }
+
 
     /**
      * 清空用户关联权限认证，待下次使用时重新加载
@@ -141,10 +145,6 @@ public class ShiroDBRealm extends AuthorizingRealm {
         }
         UserService.removeCache("menuList");
         UserService.removeCache("categoryList");
-    }
-
-    public void setSystemService(SystemService systemService) {
-        this.systemService = systemService;
     }
 
     /**

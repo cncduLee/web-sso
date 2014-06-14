@@ -11,10 +11,9 @@
         SELECT
         <include refid="Base_Column_List"></include>
         FROM
-        Role
+        sys_role
         WHERE
-
-        ORDER BY order_time DESC
+        <include refid="Base_Where_List"></include>
         limit
         #{startIdx,jdbcType=INTEGER}
         ,#{pageSize,jdbcType=INTEGER}
