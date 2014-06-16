@@ -33,7 +33,7 @@ public class IndexController {
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
     @RequiresUser
-    @RequestMapping(value = "/index.htm", method = RequestMethod.GET)
+    @RequestMapping(value = {"/index.htm","/"}, method = RequestMethod.GET)
     public String index(Model model) {
         List<Resource> menus = UserService.getResourceList();
         model.addAttribute("menus", menus);

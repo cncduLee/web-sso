@@ -64,7 +64,6 @@ public class LoginController {
             return "redirect:/index.htm";
         } catch (CredentialsException e) {
             logger.error("用户登录密码错误, msg:{}", e.getMessage(), e);
-            //TODO 增加密码错误次数发生异常
         }catch (AuthenticationException e) {
             logger.error("用户登录发生异常, msg:{}", e.getMessage(), e);
         }
