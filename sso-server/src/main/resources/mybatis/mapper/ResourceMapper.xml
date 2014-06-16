@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="Resource">
+    <resultMap id="ResultMapper" type="User">
+        <result column="id" property="id" jdbcType="DECIMAL"/>
+        <result column="parent" property="parent" jdbcType="DECIMAL"/>
+
+        <result column="parent_ids" property="parentIds" jdbcType="VARCHAR"/>
+        <result column="href" property="href" jdbcType="VARCHAR"/>
+        <result column="target" property="target" jdbcType="VARCHAR"/>
+
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="icon" property="icon" jdbcType="VARCHAR"/>
+
+        <result column="sort" property="sort" jdbcType="VARCHAR"/>
+        <result column="is_show" property="isShow" jdbcType="VARCHAR"/>
+        <result column="permission" property="permission" jdbcType="VARCHAR"/>
+        <result column="del_flag" property="delFlag" jdbcType="VARCHAR"/>
+
+    </resultMap>
+
+
+
+    <select id="findByUserId" resultMap="ResultMapper">
+        SELECT
+        r.id as id,
+        r.parent as parent,
+        r.parent_ids as parent_ids,
+        r.type as type,
+        r.name as name,
+        r.href as href,
+        r.target as target,
+        r.icon as icon,
+        r.sort as sort,
+        r.is_show as is_show,
+        r.permission as permission,
+        r.del_flag as del_flag
+        FROM
+        sys_resource r,sys_role_resource u
+        WHERE
+        r.id = u.resource_id and u.role_id in
+        <foreach collection="list" item="roleIds"  open="(" separator="," close=")">
+            #{roleIds,,jdbcType=DECIMAL}
+        </foreach>
+
+    </select>
+
+
+    <sql id="Base_Column_List">
+        id,
+        parent,
+        parent_ids,
+        type,
+        name,
+        href,
+        target,
+        icon,
+        sort,
+        is_show,
+        permission,
+        del_flag
+    </sql>
+    <sql id="Base_Where_List">
+
+    </sql>
+
+</mapper>

@@ -3,28 +3,48 @@
 <mapper namespace="Role">
     <resultMap id="ResultMapper" type="Role">
         <result column="id" property="id" jdbcType="DECIMAL"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="module" property="module" jdbcType="DECIMAL"/>
+        <result column="del_flag" property="delFlag" jdbcType="VARCHAR"/>
     </resultMap>
 
 
 
-    <sql id="common">
+    <select id="findByUserId" resultMap="ResultMapper"  parameterType="java.lang.Long">
         SELECT
-        <include refid="Base_Column_List"></include>
+        r.id as id,
+        r.module as module,
+        r.name as name,
+        r.del_flag as del_flag
+        FROM
+        sys_role r ,sys_user_role u
+        WHERE
+        r.id = u.role_id
+        and u.user_id = #{userId,jdbcType=DECIMAL}
+    </select>
+
+
+    <select id="findByName" resultMap="ResultMapper"  parameterType="java.lang.String">
+        SELECT
+        <include refid="Base_Where_List"></include>
         FROM
         sys_role
         WHERE
+        name = #{name,jdbcType=VARCHAR}
+    </select>
+
+
+    <select id="findAll" resultMap="ResultMapper">
+        SELECT
         <include refid="Base_Where_List"></include>
-        limit
-        #{startIdx,jdbcType=INTEGER}
-        ,#{pageSize,jdbcType=INTEGER}
-    </sql>
+        FROM
+        sys_role
+    </select>
 
 
-    <sql id="Base_Column_List">
 
-    </sql>
     <sql id="Base_Where_List">
-
+        id,module.name,del_flag
     </sql>
 
 </mapper>

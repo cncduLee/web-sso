@@ -23,6 +23,7 @@
         <commons-lang3.version>3.1</commons-lang3.version>
         <junit.version>4.11</junit.version>
         <mockito.version>1.9.5</mockito.version>
+        <guava.version>14.0</guava.version>
     </properties>
 
     <!-- 设定除中央仓库(repo1.maven.org/maven2/)外的其他仓库,按设定顺序进行查找. -->
@@ -64,6 +65,12 @@
     </repositories>
 
     <dependencies>
+        <!-- google java library -->
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>${guava.version}</version>
+        </dependency>
         <!-- Shiro 框架 -->
         <dependency>
             <groupId>org.apache.shiro</groupId>

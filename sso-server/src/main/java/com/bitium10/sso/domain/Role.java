@@ -1,5 +1,9 @@
 package com.bitium10.sso.domain;
 
+import com.google.common.collect.Lists;
+
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  * User:  lpm【百墨】 shouli1990@gmail.com
@@ -14,6 +18,7 @@ public class Role extends BaseEntity{
     private Long module; //所属模块Id
     private String name;   // 角色名称
     private String delFlag;// 删除标记（0：正常；1：删除）
+    private List<Resource> menuList = Lists.newArrayList(); // 拥有菜单列表
 
     public Role() {
     }
@@ -48,5 +53,23 @@ public class Role extends BaseEntity{
 
     public void setDelFlag(String delFlag) {
         this.delFlag = delFlag;
+    }
+
+    public List<Resource> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<Resource> menuList) {
+        this.menuList = menuList;
+    }
+
+    public static List<Long> getRoleIds(List<Role> roles){
+        List<Long> roleIds = Lists.newArrayList();
+        if(roles != null && !roles.isEmpty()){
+            for(Role role : roles){
+                roleIds.add(role.getId());
+            }
+        }
+        return roleIds;
     }
 }

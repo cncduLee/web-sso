@@ -1,6 +1,8 @@
 package com.bitium10.sso.domain;
 
-import java.util.Date;
+import com.google.common.collect.Lists;
+
+import java.util.*;
 
 /**
  * Created with IntelliJ IDEA.
@@ -27,6 +29,10 @@ public class User extends BaseEntity{
     private String delFlag;	// 删除标记（0：正常；1：删除）
     private String loginIp;	// 最后登陆IP
     private Date loginDate;	// 最后登陆日期
+
+    private List<Resource> menuList = Lists.newArrayList();//资源列表
+    private List<Role> roleList = Lists.newArrayList();//权限列表
+
 
     public User() {
     }
@@ -159,5 +165,21 @@ public class User extends BaseEntity{
 
     public static boolean isAdmin(Long id){
         return id != null && id.equals(1L);
+    }
+
+    public List<Resource> getMenuList() {
+        return menuList;
+    }
+
+    public void setMenuList(List<Resource> menuList) {
+        this.menuList = menuList;
+    }
+
+    public List<Role> getRoleList() {
+        return roleList;
+    }
+
+    public void setRoleList(List<Role> roleList) {
+        this.roleList = roleList;
     }
 }

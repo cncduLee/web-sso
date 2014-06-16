@@ -45,19 +45,6 @@
                     </shiro:user> |
 					&nbsp;&nbsp;&nbsp;
 				</span>
-            <ul class="nav nav-pills" style="margin:0;" id="menu">
-                <li class="title"><h1>SSO<small></small></h1></li>
-                <li style="width:18px;">&nbsp;</li>
-                <c:set var="firstMenu" value="true"/><c:forEach items="${fns:getMenuList()}" var="menu" varStatus="idxStatus"><c:if test="${menu.parent.id eq 1&&menu.isShow eq 1}">
-                <li class="menu ${firstMenu?' active':''}"><a class="menu" href="${ctx}/sys/menu/tree?parentId=${menu.id}" target="menuFrame" >${menu.name}</a></li>
-                <c:if test="${firstMenu}"><c:set var="firstMenuId" value="${menu.id}"/></c:if><c:set var="firstMenu" value="false"/></c:if></c:forEach>
-                <shiro:hasPermission name="cms:site:select"><li class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">${fnc:getSite(fnc:getCurrentSiteId()).name}<b class="caret"></b></a>
-                    <ul class="dropdown-menu">
-                        <c:forEach items="${fnc:getSiteList()}" var="site"><li><a href="${ctx}/cms/site/select?id=${site.id}&flag=1">${site.name}</a></li></c:forEach>
-                    </ul>
-                </li></shiro:hasPermission>
-            </ul>
         </div>
     </div>
     <div id="content" class="row-fluid">
@@ -72,7 +59,7 @@
         </div>
     </div>
     <div id="footer" class="row-fluid">
-        Copyright &copy; 2012-2013 <a href="mailto:thinkgem@163.com">ThinkGem</a> - Powered By <a href="https://github.com/thinkgem/jeesite">JeeSite</a> V1.0
+        Copyright &copy; 2014 <a href="mailto:shouli1990@gmail.com">百墨</a> - Powered By <a href="https://github.com/cncduLee/web-sso">WEB-SSO</a> V0.01
     </div>
 </div>
 <script type="text/javascript">

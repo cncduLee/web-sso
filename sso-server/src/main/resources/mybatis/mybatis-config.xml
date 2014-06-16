@@ -7,9 +7,18 @@
     <typeAliases>
        <typeAlias alias="Role" type="com.bitium10.sso.domain.Role"/>
        <typeAlias alias="User" type="com.bitium10.sso.domain.User"/>
+        <typeAlias alias="Resource" type="com.bitium10.sso.domain.Resource"/>
+        <typeAlias alias="Module" type="com.bitium10.sso.domain.Module"/>
+        <typeAlias alias="Department" type="com.bitium10.sso.domain.Department"/>
+
+
     </typeAliases>
     <mappers>
         <mapper resource="mybatis/mapper/RoleMapper.xml"/>
         <mapper resource="mybatis/mapper/UserMapper.xml"/>
+
+        <mapper resource="mybatis/mapper/ResourceMapper.xml"/>
+        <mapper resource="mybatis/mapper/ModuleMapper.xml"/>
+        <mapper resource="mybatis/mapper/DepartmentMapper.xml"/>
     </mappers>
 </configuration>

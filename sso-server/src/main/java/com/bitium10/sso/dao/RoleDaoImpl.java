@@ -2,6 +2,9 @@ package com.bitium10.sso.dao;
 
 import com.bitium10.sso.dao.api.RoleDao;
 import com.bitium10.sso.domain.Role;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,23 +18,28 @@ import java.util.List;
  */
 @Repository("roleDao")
 public class RoleDaoImpl implements RoleDao {
+    private static Logger logger = LoggerFactory.getLogger(RoleDaoImpl.class);
+
+    @Autowired
+    private SuperDao superDao;
+
     @Override
     public Role findByName(String name) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return superDao.getSqlSession().selectOne("Role.findByName",name);
     }
 
     @Override
     public int deleteById(Long id) {
-        return 0;  //To change body of implemented methods use File | Settings | File Templates.
+        return 0;
     }
 
     @Override
     public List<Role> findAllList() {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return superDao.getSqlSession().selectList("Role.findAll");
     }
 
     @Override
     public List<Role> findByUserId(Long userId) {
-        return null;  //To change body of implemented methods use File | Settings | File Templates.
+        return superDao.getSqlSession().selectList("Role.findByUserId",userId);
     }
 }
