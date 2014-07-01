@@ -1,6 +1,7 @@
 package com.bitium10.sso.utils;
 
 import com.google.gson.Gson;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -38,5 +39,30 @@ public class StringTransition {
         return new Gson().toJson(obj);
     }
 
+    public static String trim(String src){
+        if(null == src || "".equals(src.trim())){
+            return null;
+        }
+        int sz = src.length();
+        if(sz != 15 && sz != 18) return null;
 
+        StringBuffer sb = new StringBuffer();
+        for (int i = 0; i < sz; i++) {
+            if (Character.isDigit(src.charAt(i)) == false) {
+                return null; //非法字符，直接返回
+            }
+            if(i == 0 || i == (sz-1)){
+                sb.append(src.charAt(i));
+            }else{
+                sb.append("*");
+            }
+        }
+        return sb.toString();
+    }
+
+    public static void main(String[] args){
+        Long s = System.currentTimeMillis();
+        System.out.println(trim("511002198707127014"));
+        System.out.println(System.currentTimeMillis() - s);
+    }
 }

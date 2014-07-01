@@ -3,50 +3,39 @@
 <html>
 <head>
     <title>登录页</title>
-    <script>
-        $(document).ready(function() {
-            $("#loginForm").validate();
-        });
-        // 如果在框架中，则跳转刷新上级页面
-        if(self.frameElement.tagName=="IFRAME"){
-            parent.location.reload();
-        }
-    </script>
 </head>
 <body>
-<table style="width:100%;height:500px"><tr><td align="center" valign="middle">
-    <div id="header" style="width:500px;">
-        <h1>百墨-SSO</h1><br/>
-        <div class="well"><br/>
-            <form id="loginForm" action="${ctx}/login.htm" method="post" class="form-horizontal">
-                <c:if test="${error != null}">
-                    <div id="message" class="alert  alert-error"><button data-dismiss="alert" class="close">×</button>登录失败,${error } 请重试.</div>
-                </c:if>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 col-md-offset-4">
+            <div class="login-panel panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Please Sign In</h3>
+                </div>
+                <div class="panel-body">
+                    <form role="form" id="loginForm" action="${ctx}/login.htm" method="post">
+                        <fieldset>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="登录名" id="username" name="username" maxlength="50" value="${loginName}" autofocus/>
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" placeholder="密码" id="password" name="password" maxlength="50"  class="required input-medium"/>
 
-                <div class="control-group">
-                    <label class="control-label">登录名:</label>
-                    <div class="controls">
-                        <input type="text" id="username" name="username" maxlength="50" value="${loginName}" class="required input-medium"/>
-                    </div>
+                            </div>
+                            <div class="checkbox">
+                                <label>
+                                    <input name="remember" type="checkbox" value="Remember Me">Remember Me
+                                </label>
+                            </div>
+                            <!-- Change this to a button or input when using this as a form -->
+                            <input id="submit" class="btn btn-lg btn-success btn-block" type="submit" value="登 录"/>
+                        </fieldset>
+                    </form>
                 </div>
-                <div class="control-group">
-                    <label class="control-label">密码:</label>
-                    <div class="controls">
-                        <input type="password" id="password" name="password" maxlength="50"  class="required input-medium"/>
-                    </div>
-                </div>
-                <div class="control-group">
-                    <label class="control-label">&nbsp;</label>
-                    <div class="controls">
-                        <input id="submit" class="btn btn-primary" type="submit" value="登 录"/>&nbsp;
-                        <label for="rememberMe"><input type="checkbox" id="rememberMe" name="rememberMe"/> 记住我（公共场所慎用）</label>
-                    </div>
-                </div>
-            </form>
+            </div>
         </div>
-        <div class="copyright">
-            Copyright &copy; 2014 <a href="mailto:shouli1990@gmail.com">百墨</a> - Powered By <a href="https://github.com/cncduLee/web-sso">WEB-SSO</a> V0.01
-        </div>
-    </div></td></tr></table>
+    </div>
+</div>
+
 </body>
 </html>

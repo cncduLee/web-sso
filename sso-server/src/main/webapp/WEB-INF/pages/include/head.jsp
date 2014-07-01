@@ -6,12 +6,14 @@
 <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9" />
 <meta name="author" content="shouli1990@gmail.com"/>
 
-<script src="${ctxStatic}/jquery/jquery-1.9.1.min.js" type="text/javascript"></script>
-<script src="${ctxStatic}/jquery/jquery-migrate-1.1.1.min.js" type="text/javascript"></script>
-<link href="${ctxStatic}/bootstrap/2.0.4/css/bootstrap.min.css" type="text/css" rel="stylesheet" />
-<script src="${ctxStatic}/bootstrap/2.0.4/js/bootstrap.min.js" type="text/javascript"></script>
-<!--[if IE 6]>
-<link href="${ctxStatic}/bootstrap/2.0.4/css/ie6.min.css" rel="stylesheet">
-<script src="${ctxStatic}/bootstrap/2.0.4/js/ie6.min.js" type="text/javascript"></script>
-<![endif]-->
-<link href="${ctxStatic}/style.css" type="text/css" rel="stylesheet" />
+
+<!-- Core CSS - Include with every page -->
+<link href="${ctxStatic}/css/bootstrap.min.css" rel="stylesheet">
+<link href="${ctxStatic}/font-awesome/css/font-awesome.css" rel="stylesheet">
+
+<!-- Page-Level Plugin CSS - Dashboard -->
+<link href="${ctxStatic}/css/plugins/morris/morris-0.4.3.min.css" rel="stylesheet">
+<link href="${ctxStatic}/css/plugins/timeline/timeline.css" rel="stylesheet">
+
+<!-- SB Admin CSS - Include with every page -->
+<link href="${ctxStatic}/css/sb-admin.css" rel="stylesheet">

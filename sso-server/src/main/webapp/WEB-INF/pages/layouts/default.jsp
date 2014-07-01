@@ -14,7 +14,11 @@
 		<%@include file="/WEB-INF/pages/include/head.jsp" %>
 		<sitemesh:head/>
 	</head>
-	<body>
+	<body >
 		<sitemesh:body/>
-	</body>
+        <div id="footer" class="row-fluid">
+            Copyright &copy; 2014 <a href="mailto:shouli1990@gmail.com">百墨</a> - Powered By <a href="https://github.com/cncduLee/web-sso">WEB-SSO</a> V0.01
+        </div>
+        <%@include file="/WEB-INF/pages/include/footer.jsp" %>
+    </body>
 </html>

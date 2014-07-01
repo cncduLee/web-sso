@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="Resource">
-    <resultMap id="ResultMapper" type="User">
+    <resultMap id="ResultMapper" type="Resource">
         <result column="id" property="id" jdbcType="DECIMAL"/>
         <result column="parent" property="parent" jdbcType="DECIMAL"/>
 
@@ -19,6 +19,12 @@
 
     </resultMap>
 
+    <select id="findAll" resultMap="ResultMapper">
+        select
+        <include refid="Base_Column_List"></include>
+        from
+        sys_resource
+    </select>
 
 
     <select id="findByUserId" resultMap="ResultMapper">

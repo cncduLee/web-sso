@@ -7,25 +7,12 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <%@ include file="/WEB-INF/pages/include/taglib.jsp"%>
+<c:set var="ctx" value="${pageContext.request.contextPath}"/>
+<c:set var="ctxStatic" value="${pageContext.request.contextPath}/static"/>
+
 <html>
 <head>
     <title>管理主页</title>
-    <link href="${ctxStatic}/jquery-jbox/2.3/Skins/Bootstrap/jbox.css" rel="stylesheet" />
-    <script src="${ctxStatic}/jquery-jbox/2.3/jquery.jBox-2.3.min.js" type="text/javascript"></script>
-    <script src="${ctxStatic}/jquery-jbox/2.3/i18n/jquery.jBox-zh-CN.min.js" type="text/javascript"></script>
-    <style type="text/css">
-        .nav li{margin-top:8px;}.nav li.title{margin-top:0;}.nav li.menu,.nav li.dropdown{margin:8px 3px 0 3px}
-        .nav li.menu a{padding:5px 6px;*padding:4px 5px 3px 5px;}.nav li.dropdown a{padding:5px 6px;*padding:1px 5px 3px 5px;}
-        .nav li a{font-size:14px;padding:6px 8px;*padding:3px 8px;}
-    </style>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $("#menu a.menu").click(function(){
-                $("#menu li.menu").removeClass("active");
-                $(this).parent().addClass("active");
-            });
-        });
-    </script>
 </head>
 <body>
 <div id="main" class="container-fluid">
