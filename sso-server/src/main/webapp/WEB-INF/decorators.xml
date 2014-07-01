@@ -4,7 +4,11 @@
 	<excludes>
 		<pattern>/static/*</pattern>
 	</excludes>
-	
+
+    <decorator name="ad" page="layouts/administration.jsp">
+        <pattern>/a/*</pattern>
+    </decorator>
+
 	<decorator name="default" page="layouts/default.jsp">
 		<pattern>*</pattern>
 	</decorator>

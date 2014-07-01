@@ -15,8 +15,10 @@
 		<sitemesh:head/>
 	</head>
 	<body >
-		<sitemesh:body/>
-
+        <div id="wrapper">
+            <%@include file="/WEB-INF/pages/include/menu.jsp" %>
+            <sitemesh:body/>
+        </div>
         <%@include file="/WEB-INF/pages/include/footer.jsp" %>
     </body>
 </html>

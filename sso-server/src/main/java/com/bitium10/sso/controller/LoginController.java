@@ -32,7 +32,6 @@ import javax.servlet.http.HttpServletResponse;
 public class LoginController {
 
     private static final Logger logger = LoggerFactory.getLogger(LoginController.class);
-    private static final String CHARS = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
 
     @RequestMapping(value="/login.htm",method = RequestMethod.GET)
     public String login(HttpServletRequest request){
