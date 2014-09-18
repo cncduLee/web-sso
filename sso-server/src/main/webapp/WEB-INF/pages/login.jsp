@@ -13,6 +13,12 @@
                     <h3 class="panel-title">Please Sign In</h3>
                 </div>
                 <div class="panel-body">
+                    <c:if test="${error != null}">
+                        <div class="alert alert-info" style="width: 400px;">
+                            <a class="close" data-dismiss="alert" href="#">×</a>
+                            Press enter key or click the Submit button
+                        </div>
+                    </c:if>
                     <form role="form" id="loginForm" action="${ctx}/login.htm" method="post">
                         <fieldset>
                             <div class="form-group">

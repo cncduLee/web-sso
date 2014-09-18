@@ -3,8 +3,6 @@ package com.bitium10.sso.filter;
 import com.bitium10.sso.common.Constant;
 import com.bitium10.sso.domain.User;
 import com.bitium10.sso.service.UserService;
-import com.bitium10.sso.shiro.ShiroDBRealm;
-import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.web.filter.PathMatchingFilter;
 
 import javax.servlet.ServletRequest;

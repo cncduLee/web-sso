@@ -29,8 +29,8 @@
 
 
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
-        <!--?前面的是包名，messages是配置文件的前缀?-->
-        <property name="basename" value="i18n.message"/>
+        <!--?前面的是包名，messages是配置文件的前缀?
+        <property name="basename" value="i18n.message"/>-->
     </bean>
 
     <!-- 容器默认的DefaultServletHandler处理 所有静态内容与无RequestMapping处理的URL -->

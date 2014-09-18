@@ -57,12 +57,12 @@ public class PasswordHelper {
     }
 
     public static void main(String args[]){
-        String salt = randomNumberGenerator.nextBytes().toHex();
+        String salt = "f92d687c778df797a8c9d4c749627694";//randomNumberGenerator.nextBytes().toHex();
         System.out.println(salt);
         String newPassword = new SimpleHash(
                 "md5",
-                "123456",
-                ByteSource.Util.bytes("user"+salt),
+                "admin",
+                ByteSource.Util.bytes("admin"+salt),
                 2).toHex();
         //System.out.println(ByteSource.Util.bytes("admin"+salt));
         System.out.println(newPassword);

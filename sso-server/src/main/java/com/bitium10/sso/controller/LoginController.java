@@ -74,8 +74,9 @@ public class LoginController {
     }
 
     @RequestMapping("/logout.htm")
-    public void logout(HttpServletRequest request, HttpServletResponse response) {
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
         Subject user = SecurityUtils.getSubject();
         user.logout();
+        return "redirect:/index.htm";
     }
 }

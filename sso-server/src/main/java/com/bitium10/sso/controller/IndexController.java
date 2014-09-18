@@ -28,7 +28,6 @@ import java.util.List;
  * To change this template use File | Settings | File Templates.
  */
 @Controller
-@RequestMapping(value = BaseController.ADMIN_PATH)
 public class IndexController extends BaseController{
 
     private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
