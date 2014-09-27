@@ -11,6 +11,7 @@ public class Resource extends BaseEntity{
     private static final long serialVersionUID = 1L;
 
     private Long id;		// 编号
+    private Long moduleId;  // 所属模块（系统）
     private Long parent;    // 父级菜单
     private String parentIds;// 所有父级编号
     private String type;    //类型
@@ -32,6 +33,14 @@ public class Resource extends BaseEntity{
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public Long getModuleId() {
+        return moduleId;
+    }
+
+    public void setModuleId(Long moduleId) {
+        this.moduleId = moduleId;
     }
 
     public Long getParent() {
