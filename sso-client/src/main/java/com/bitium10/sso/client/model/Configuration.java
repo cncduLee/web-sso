@@ -22,9 +22,11 @@ public class Configuration {
     public static String error;
     public static String userinfoUrl;
     public static String timeOutUrl;
-    
+    public static String logoutUrl;
+
     static {
         //TODO
     }
+
 
 }
