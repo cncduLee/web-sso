@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
  * <b>包名称</b>： com.bitium10.sso.client.utils <br>
  * <b>类名称</b>： Validations <br>
  * <b>类描述</b>： <br>
- * <b>创建人</b>： <a href="mailto:wylipengming@chinabank.com.cn">李朋明</a> <br>
+ * <b>创建人</b>： <a href="mailto:shouli1990@gmail.com">李朋明</a> <br>
  * <b>修改人</b>： <br>
  * <b>创建时间</b>：2014/9/27 18:16
  * <b>修改时间</b>： <br>
