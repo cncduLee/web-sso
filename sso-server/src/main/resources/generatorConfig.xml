@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+  <context id="sqlmap" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1/websso?characterEncoding=UTF-8" userId="root" password="root" />
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    <javaModelGenerator targetPackage="com.bitium10.sso.domain" targetProject="./src/main/java">
+    	<property name="enableSubPackages" value="true" />
+      	<property name="trimStrings" value="true" />
+    </javaModelGenerator>
+    <sqlMapGenerator targetPackage="mybatis.mapper" targetProject="./src/main/resources" >
+    	<property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    <javaClientGenerator targetPackage="com.bitium10.sso.dao" targetProject="./src/main/java" type="XMLMAPPER">
+    	<property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    <table tableName="sys_user"><generatedKey column="id" sqlStatement="MYSQL" identity="true" /></table>
+
+  </context>
+</generatorConfiguration>
